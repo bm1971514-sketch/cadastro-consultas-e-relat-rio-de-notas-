@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <script>
+// Se o usuário não estiver logado, volta para o login
+if (sessionStorage.getItem("logado") !== "sim") {
+    window.location.href = "login.html";
+}
+</script>
+    <button onclick="logout()" style="margin-left: 1800px; margin-top:2rem">Sair</button>
+
+<script>
+function logout() {
+    sessionStorage.removeItem("logado");
+    window.location.href = "login.html";
+}
+</script>
+<img src="logo.png" alt="Logo Gestão de Notas" style="width:150px; margin:20px auto; display:block;">
+    <div class="container">
+        <h1>Gestão de Notas</h1>
+        <form id="formNotas">
+            <div class="form-group">
+                <label for="nome">Nome do Aluno</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="materia">Matéria</label>
+                <select id="materia" name="materia" required>
+                    <option value="">Selecione a matéria</option>
+                    <option value="MATEMÁTICA">MATEMÁTICA</option>
+                    <option value="GEOGRAFIA">GEOGRAFIA</option>
+                    <option value="L.P.RE">L.P.RE</option>
+                    <option value="L.PROG">L.PROG</option>
+                    <option value="S.S.RE">S.S.RE</option>
+                    <option value="BIOLOGIA">BIOLOGIA</option>
+                    <option value="I.P.WE">I.P.WE</option>
+                    <option value="MTEMP">MTEMP</option>
+                    <option value="FÍSICA">FÍSICA</option>
+                    <option value="ARTE">ARTE</option>
+                    <option value="R.C.II">R.C.II</option>
+                    <option value="I.M.C.O">I.M.C.O</option>
+                    <option value="P.VIS.">P.VIS.</option>
+                    <option value="QUÍMICA">QUÍMICA</option>
+                   
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="turma">Turma</label>
+                <select id="turma" name="turma" required>
+                    <option value="">Selecione a turma</option>
+                    <option value="1A">1A</option>
+                    <option value="1B">1B</option>
+                    <option value="2A">2A</option>
+                    <option value="2B">2B</option>
+                    <option value="3A">3A</option>
+                    <option value="3B">3B</option>
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nota1">UNIDADE 1</label>
+                <input type="number" id="nota1" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="nota2">UNIDADE 2</label>
+                <input type="number" id="nota2" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="nota3">UNIDADE 3</label>
+                <input type="number" id="nota3" step="0.1" required>
+            </div>
+            <button type="submit">Salvar Notas</button>
+        </form>
+
+        <div id="boletim" class="boletim">
+            <h2>Boletim</h2>
+            <table id="tabelaBoletim">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Matéria</th>
+                        <th>Turma</th>
+                        <th>Nota Final</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
